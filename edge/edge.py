@@ -77,6 +77,8 @@ def convert_pt(x, y, w, h):
 
 ### img_mod : frame을 VR영상으로 변환
 def img_mod():
+    # royshil's cylindricalWarping.py
+    # https://gist.github.com/royshil/0b21e8e7c6c1f46a16db66c384742b2b
     while True:
         frame = edgeBeforeBuff.get()
         """This function returns the cylindrical warp for a given image and intrinsics matrix K"""

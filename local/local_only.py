@@ -30,6 +30,8 @@ cam.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
 f = open("node_only_latency_1920.txt", "w")
 
 def img_mod():
+    # royshil's cylindricalWarping.py
+    # https://gist.github.com/royshil/0b21e8e7c6c1f46a16db66c384742b2b
     while True:
         img = nodeBeforeBuff.get()
         # print("hi\n")
