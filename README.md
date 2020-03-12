@@ -22,7 +22,7 @@ use_math : true
 
 시스템은 Local과 Edge로 나뉜다. Local의 경우 Computation Resource Selection, Socket Communication, Image Processing과 Image Merger 총 네 부분으로 나뉜다. Edge의 경우 Socket Communication과 Image Processing 총 두 부분으로 나뉘며, Local과 Edge 모두 각 부분은 스레드로 분리하여 동시에 작동할 수 있도록 하였다. 
 
-![system model](/assets/images/system-model.png )
+![system model](/images/system-model.png )
 <div style="text-align: center">fig. 1 The DRL-based system architecture</div>
 
 ### Computation Resource Allocation
@@ -46,7 +46,7 @@ Local과 Edge는 Socket을 통해 통신한다. 프레임에 해당하는 Mat변
 
 아래 자료는 극좌표계에서의 좌표로 계산하여 휘어진 이미지를 보여준다. 사용자가 처리 후에 받게 될 결과이며, 극좌표계에서의 좌표는 모니터 화면과 맞지 않으므로 fig.2 와 같이 평면 직사각형에 투영하여 전송한다. 이는 [2]의 코드를 참고하여 작성하였다.
 
-![result img](/assets/images/processed-img.png )
+![result img](/images/processed-img.png )
 <div style="text-align: center">fig. 2 The result image</div>
 
 ### Imgae Merger
@@ -65,7 +65,7 @@ Local과 Edge는 Socket을 통해 통신한다. 프레임에 해당하는 Mat변
 ### Result Analysis
 프로젝트의 목적은 계산(영상처리)을 에지 컴퓨팅을 통해 향상시키는 것이고, 나아가서는 강화학습을 적용하여 매 시각 다양하게 변화하는 네트워크 환경에 대해 Computing Resource Selection을 적절히 하여 임의로 설정한 parameter를 통한 결과보다 더 좋은 결과를 얻는 것이다. 아래의 두 사진은 각각 Local에서만 영상처리를 했을 때, 임의의 parameter를 설정하여 평균치를 이용한 분배와 학습을 이용한 분배의 비교를 나타낸 Empirical CDF이다. 세로는 확률, 가로는 프레임과 프레임 사이의 latency이다. 프레임 사이의 latency가 작을수록 영상의 frame이 옳은 순서로 더 빠르게 처리(재생)되어 더 높은 성능을 가진다고 볼 수 있다. 즉, Computing Resource Selection이 옳게 이루어져 Local혼자 처리할 때 보다 높은 성능향상을 보인다.
 
-| ![analysis local only](/assets/images/analysis-local-only.png )| ![analysis local only](/assets/images/analysis-DRL.png ) | 
+| ![analysis local only](/images/analysis-local-only.png )| ![analysis local only](/images/analysis-DRL.png ) | 
 | --- | --- |
 |<center>fig. 3 The result analysis of local only</center> | <center>fig. 4 The result analysis of edge server</center> |
 
